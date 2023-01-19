@@ -1,8 +1,12 @@
 from aiogram import Bot, Dispatcher, executor, types
 import os
 
+from .database import *
+from .handlers import *
+
 async def create_logic(dp: Dispatcher):
-    pass
+    start_database(dp)
+    set_handlers(dp)
 
 def start_bot():
     bot = Bot(token=os.getenv("TOKEN"))
