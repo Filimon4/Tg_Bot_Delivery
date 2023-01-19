@@ -4,20 +4,13 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from ..button import *
 
-
 Register_status = 0
-
 
 def set_state(dp: Dispatcher):
     dp.register_message_handler(register_name, text = "Пройти регистрацию", state = None)
     dp.register_message_handler(Stop_register, text = 'Отмена', state = '*')
     dp.register_message_handler(register_name_complete, state = FSM_Register.name)
     dp.register_message_handler(register_password_complete, state = FSM_Register.password)
-
-
-
-
-
 
 class FSM_Register(StatesGroup):
     name = State()

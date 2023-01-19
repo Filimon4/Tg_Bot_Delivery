@@ -23,5 +23,6 @@ async def cancel_register(msg: types.Message):
     await msg.delete()
 
 
-async def order():
-    pass
+async def order(msg: types.Message):
+    await msg.answer('Регистрация не готова =)')
+    await msg.delete()
