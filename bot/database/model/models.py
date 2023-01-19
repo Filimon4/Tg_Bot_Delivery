@@ -8,13 +8,13 @@ class BaseModel(Model):
 
 class User(BaseModel):
     user_id = CharField(unique=True)
-    
+    mail = CharField()
 
     class Meta:
         table_name = "Users"
 
 class Order(BaseModel):
-    from_user = ForeignKeyField(User, backref="Order")
+    user_id = ForeignKeyField(User, backref="Order")
     order_date = DateField()
     order_name = CharField()
     order_cost = FloatField()
@@ -23,7 +23,7 @@ class Order(BaseModel):
         table_name = "Orders"
 
 class Review(BaseModel):
-    from_user_id = ForeignKeyField(User, backref="Review")
+    user_id = ForeignKeyField(User, backref="Review")
     review = CharField()
 
     class Meta:
