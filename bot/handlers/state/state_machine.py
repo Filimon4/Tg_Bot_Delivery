@@ -9,12 +9,12 @@ def set_state(dp: Dispatcher):
     dp.register_message_handler(Stop_register, text = 'Отмена', state = '*')
     dp.register_message_handler(register_name_complete, state = FSM_Register.name)
     dp.register_message_handler(register_password_complete, state = FSM_Register.password)
+    
 
 class FSM_Register(StatesGroup):
     name = State()
     password = State()
     account = State()
-
 
 async def register_name(msg: types.Message):
     #state machine
@@ -43,4 +43,8 @@ async def register_password_complete(msg: types.Message, state : FSMContext):
     await msg.answer('Регистрация завершена', reply_markup = reply_key.kb_menu )
     await msg.delete()
     await state.finish()
+
+
+
+
 
