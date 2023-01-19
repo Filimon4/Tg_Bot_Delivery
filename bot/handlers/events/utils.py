@@ -3,7 +3,7 @@ from aiogram import types
 from ..button import *
 
 async def start(msg: types.Message):
-    await msg.answer("Здравствуйте, вас приветсвует бот для заказов еды", reply_markup=reply_key.kb_menu)
+    await msg.answer("Здравствуйте, вас приветсвует бот Акио для заказов еды из Япономании", reply_markup=reply_key.kb_menu)
     #await msg.delete()
 
 async def register(msg: types.Message):
