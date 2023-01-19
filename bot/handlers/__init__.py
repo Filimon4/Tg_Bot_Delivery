@@ -1,1 +1,1 @@
- 
+from .main_handlers import set_handlers
