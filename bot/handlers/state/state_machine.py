@@ -43,8 +43,3 @@ async def register_password_complete(msg: types.Message, state : FSMContext):
     await msg.answer('Регистрация завершена', reply_markup = reply_key.kb_menu )
     await msg.delete()
     await state.finish()
-
-
-
-
-
