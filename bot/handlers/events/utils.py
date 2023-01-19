@@ -6,11 +6,11 @@ from ..button import *
 
 async def start(msg: types.Message):
     await msg.answer("Здравствуйте, вас приветсвует бот Акио для заказов еды из Япономании", reply_markup=reply_key.kb_menu)
-    #await msg.delete()
+    await msg.delete()
 
 async def register(msg: types.Message):
-    #state machine
-    await msg.answer('Регистрация не готова =)', reply_markup= reply_key.Register)
+    #check database
+    await msg.answer('Ищю межплонетного диспечера', reply_markup= reply_key.Register)
     await msg.delete()
 
 async def cancel_register(msg: types.Message):
@@ -19,5 +19,5 @@ async def cancel_register(msg: types.Message):
 
 
 async def order(msg: types.Message):
-    await msg.answer('Регистрация не готова =)')
+    await msg.answer('Ващего курьера сбил астеройд')
     await msg.delete()
