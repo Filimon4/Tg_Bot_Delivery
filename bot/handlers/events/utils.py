@@ -17,4 +17,13 @@ async def cancel_register(msg: types.Message):
     await msg.answer('Возращаю', reply_markup= reply_key.kb_menu)
 
 async def order(msg: types.Message):
-    await msg.answer('Ващего курьера сбил астеройд')
+    await msg.answer('Находи курьера на астеройде...', reply_markup= reply_key.kb_order)
+
+async def make_order(msg: types.Message):
+    await msg.answer('Сделать зака')
+
+async def find_orders(msg: types.Message):
+    await msg.answer('найти зака')
+
+async def profile(msg: types.Message):
+    await msg.answer('Профиль')
