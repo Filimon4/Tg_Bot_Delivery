@@ -17,9 +17,8 @@ async def start(msg: types.Message):
 async def register(msg: types.Message):
     #check database
     
-    await msg.answer('Ищю межпланетного диспечера...', reply_markup= reply_key.kb_register)
-    # await Bot(os.getenv("TOKEN")).send_sticker(chat_id=msg.from_user.id,
-    #                        sticker=r"CAACAgIAAxkBAAED7aNiCmNgcLCdHjYZIU2Yf9sLNxTiEAACVhQAAhzIoEuxFOaAT2TuaSME")
+    await msg.answer('Выберите пункт:', reply_markup= reply_key.kb_register)
+    
 
 async def cancel_register(msg: types.Message):
     await msg.answer('Возвращаю', reply_markup= reply_key.kb_menu)
