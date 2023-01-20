@@ -21,17 +21,17 @@ async def register(msg: types.Message):
     
 
 async def cancel_register(msg: types.Message):
-    await msg.answer('Возвращаю', reply_markup= reply_key.kb_menu)
+    await msg.answer('Отменяю', reply_markup= reply_key.kb_menu)
 
 async def order(msg: types.Message):
-    await msg.answer('Находи курьера на астеройде...', reply_markup= reply_key.kb_order)
+    await msg.answer('Выберите пункт меню:', reply_markup= reply_key.kb_order)
 
 async def find_orders(msg: types.Message):
     await msg.answer('Находим заказы')
 
 async def profile(msg: types.Message):
-    await msg.answer('Находим данные с комет...', reply_markup= reply_key.kb_profile)
+    await msg.answer('Ваш профиль:', reply_markup= reply_key.kb_profile)
 
 async def find_points(msg: types.Message):
-    await msg.answer('Выводим кол-во поинтов...')
+    await msg.answer(f'Ваше количество баллов: ')
     
