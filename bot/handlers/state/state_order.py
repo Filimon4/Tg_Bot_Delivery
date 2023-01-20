@@ -41,12 +41,15 @@ async def order_start(msg: types.Message):
             ])
             await bot.send_photo(msg.chat.id, photo=str(order[-1]['img']))
             await msg.answer(items_string, reply_markup=button)
+            calls.append(name)
 
-        for order in data:
+        for name in calls:
+            print(name)
             async def call(callback_query: types.CallbackQuery):
                 await call.message.answer('He')
 
-            dp.register_callback_query_handler(call, text= f'{order[0]}')
+            dp.register_callback_query_handler(call, text= name)
 
 async def order_register(msg: types.Message, state: FSMContext):
-    print(msg.text)
+    await FSM_Order.next()
+    await state.finish()
