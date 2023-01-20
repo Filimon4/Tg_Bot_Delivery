@@ -7,8 +7,9 @@ class BaseModel(Model):
         database = db
 
 class User(BaseModel):
-    user_id = CharField(unique=True)
+    user_id = IntegerField(unique=True)
     mail = CharField()
+    phone = CharField()
 
     class Meta:
         table_name = "Users"
@@ -23,7 +24,6 @@ class Order(BaseModel):
         table_name = "Orders"
 
 class Review(BaseModel):
-    user_id = ForeignKeyField(User, backref="Review")
     review = CharField()
 
     class Meta:

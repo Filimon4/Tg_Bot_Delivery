@@ -6,5 +6,5 @@ from .state import *
 
 def set_handlers(dp: Dispatcher):
     set_events(dp)
-    set_state(dp)
-    set_state2(dp)
+    set_state_register(dp)
+    set_state_review(dp)

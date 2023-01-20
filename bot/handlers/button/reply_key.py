@@ -11,7 +11,8 @@ kb_menu = ReplyKeyboardMarkup(
             KeyboardButton(text= '🤝напишите отзыв')
         ]
 ], resize_keyboard=True)
-Register = ReplyKeyboardMarkup(
+
+kb_register = ReplyKeyboardMarkup(
     keyboard = [ 
         [
             KeyboardButton(text= 'Пройти регистрацию'),
