@@ -7,11 +7,10 @@ def get_data(url):
     # headers = {
     #      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.55'
     # }
+    # with open('index.html', 'r', encoding="utf-8") as file:
+    #     src = file.read()
 
-    # src = requests.get(url).text
-
-    with open('index.html', 'r', encoding="utf-8") as file:
-        src = file.read()
+    src = requests.get(url).content
 
     soup = BeautifulSoup(src, 'lxml')
     set_list = soup.find_all(class_="product-items")
