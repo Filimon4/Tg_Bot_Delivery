@@ -11,7 +11,7 @@ class FSM_Review(StatesGroup):
     review = State()
 
 def set_state_review(dp: Dispatcher):
-    dp.register_message_handler(review_register, text= '🤝напишите отзыв', state = None)
+    dp.register_message_handler(review_register, text= '🤝написать отзыв', state = None)
     dp.register_message_handler(review_register_complete, state = FSM_Review.review)
     dp.register_message_handler(stop_review, text = 'Назад', state = '*')
 
