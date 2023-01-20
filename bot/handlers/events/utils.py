@@ -30,3 +30,4 @@ async def profile(msg: types.Message):
 
 async def find_points(msg: types.Message):
     await msg.answer('Выводим кол-во поинтов...')
+    
