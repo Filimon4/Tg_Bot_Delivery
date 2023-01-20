@@ -8,3 +8,4 @@ def set_handlers(dp: Dispatcher):
     set_events(dp)
     set_state_register(dp)
     set_state_review(dp)
+    set_state_order(dp)

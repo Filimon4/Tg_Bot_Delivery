@@ -11,11 +11,19 @@ class FSM_Review(StatesGroup):
 def set_state_review(dp: Dispatcher):
     dp.register_message_handler(review_register, text= '🤝напишите отзыв', state = None)
     dp.register_message_handler(review_register_complete, state = FSM_Review.review)
+    dp.register_message_handler(stop_review, text = 'Назад', state = '*')
 
 async def review_register(msg: types.Message):
     #state machine2
     await FSM_Review.review.set()
     await msg.answer('Напишите свой отзыв')
+
+async def stop_review(msg: types.Message, state : FSMContext):
+    current_state = await state.get_state()
+    if current_state is None:
+        return
+    await state.finish()
+    await msg.answer("Отменяю", reply_markup = reply_key.kb_menu)
 
 async def review_register_complete(msg: types.Message, state : FSMContext):
     #state machine2

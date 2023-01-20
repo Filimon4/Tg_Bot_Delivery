@@ -26,9 +26,6 @@ async def cancel_register(msg: types.Message):
 async def order(msg: types.Message):
     await msg.answer('Находи курьера на астеройде...', reply_markup= reply_key.kb_order)
 
-async def make_order(msg: types.Message):
-    await msg.answer('Сделайте заказ')
-
 async def find_orders(msg: types.Message):
     await msg.answer('Находим заказы')
 
