@@ -26,26 +26,27 @@ async def order_start(msg: types.Message):
     await FSM_Order.register_order.set()
     
     json_orders = get_data('https://yaponomaniya.com/assorty')
-    call_answer = None
+
     await msg.answer("Товары:")
 
     with open(json_orders, 'r', encoding='utf-8') as f:
         data = list(json.load(f).items())
+        calls = []
         for order in data:
+            name = str(order[0])
             items_string = "\n" + str(order[0]) + "\n    " + order[-1]['cost'] + '\n    ' + order[-1]['desc'] +"\n"
 
-            button= InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text = "Сделать Заказ", callback_data=f"{order[0]}"))
-            call_answer = await msg.answer(items_string, reply_markup=button)
+            button= InlineKeyboardMarkup(row_width=1, inline_keyboard = [
+                [InlineKeyboardButton(text = "Оформить Заказ", callback_data= name)]
+            ])
+            await bot.send_photo(msg.chat.id, photo=str(order[-1]['img']))
+            await msg.answer(items_string, reply_markup=button)
 
         for order in data:
-            async def callback_data(call: types.CallbackQuery):
-                await call.message.answer("Ваш заказ очень важен для нас")
-                await call.message.delete()
-            
-            dp.register_callback_query_handler(callback_data, text= f'{order[0]}')
-    
-    
+            async def call(callback_query: types.CallbackQuery):
+                await call.message.answer('He')
+
+            dp.register_callback_query_handler(call, text= f'{order[0]}')
 
 async def order_register(msg: types.Message, state: FSMContext):
     print(msg.text)
-    await state.finish()

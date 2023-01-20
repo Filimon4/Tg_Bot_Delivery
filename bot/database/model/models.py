@@ -16,7 +16,6 @@ class User(BaseModel):
 
 class Order(BaseModel):
     user_id = ForeignKeyField(User, backref="Order")
-    order_date = DateField()
     order_name = CharField()
     order_cost = FloatField()
 
