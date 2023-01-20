@@ -12,7 +12,7 @@ def set_state_register(dp: Dispatcher):
     
     dp.register_message_handler(register_start, text = "Пройти регистрацию", state = None)
     
-    dp.register_message_handler(stop_register, text = 'Отмена', state = '*')
+    dp.register_message_handler(stop_register, text = 'Назад', state = '*')
     
     dp.register_message_handler(register_email, state = FSM_Register.email)
     dp.register_message_handler(register_phone, state = FSM_Register.phone)
