@@ -33,3 +33,13 @@ kb_order = ReplyKeyboardMarkup(
             KeyboardButton(text= "Назад"),
         ]
     ], resize_keyboard=True)
+
+kb_profile = ReplyKeyboardMarkup(
+    keyboard = [
+        [
+            KeyboardButton(text = "Посмотреть кол-во баллов")
+        ],
+        [
+            KeyboardButton(text= "Назад"),
+        ]
+    ], resize_keyboard=True)

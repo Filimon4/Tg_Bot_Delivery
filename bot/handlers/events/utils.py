@@ -5,7 +5,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from ..button import *
 
 async def start(msg: types.Message):
-    await msg.answer("Здравствуйте, вас приветсвует бот Акио для заказов еды из Япономании", reply_markup=reply_key.kb_menu)
+    await msg.answer("Здравствуйте, вас приветсвует бот Акито для заказов еды из Япономании", reply_markup=reply_key.kb_menu)
     await msg.delete()
 
 async def register(msg: types.Message):
@@ -26,4 +26,7 @@ async def find_orders(msg: types.Message):
     await msg.answer('найти зака')
 
 async def profile(msg: types.Message):
-    await msg.answer('Профиль')
+    await msg.answer('Находим данные с комет...', reply_markup= reply_key.kb_profile)
+
+async def find_points(msg: types.Message):
+    await msg.answer('Выводим кол-во поинтов...')
