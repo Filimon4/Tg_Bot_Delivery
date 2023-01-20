@@ -6,8 +6,6 @@ import os
 from .database import *
 from .handlers import *
 
-storage = MemoryStorage()
-
 async def create_logic(dp: Dispatcher):
     start_database(dp)
     set_handlers(dp)

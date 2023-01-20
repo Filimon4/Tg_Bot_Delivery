@@ -38,13 +38,11 @@ async def order_start(msg: types.Message):
             call_answer = await msg.answer(items_string, reply_markup=button)
 
         for order in data:
-            async def callback(call: types.CallbackQuery):
+            async def callback_data(call: types.CallbackQuery):
                 await call.message.answer("Ваш заказ очень важен для нас")
-                await bot.delete_message(call.message.from_user.id, call_answer.message_id)
-                # for answer in answers:
-                #     answer.delete()
+                await call.message.delete()
             
-            dp.register_callback_query_handler(callback, text= f'{order[0]}')
+            dp.register_callback_query_handler(callback_data, text= f'{order[0]}')
     
     
 
