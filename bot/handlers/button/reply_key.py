@@ -43,3 +43,11 @@ kb_profile = ReplyKeyboardMarkup(
             KeyboardButton(text= "Назад"),
         ]
     ], resize_keyboard=True)
+
+
+kb_review = ReplyKeyboardMarkup(
+    keyboard = [
+        [
+            KeyboardButton(text = "Назад")
+        ],
+    ], resize_keyboard=True)
