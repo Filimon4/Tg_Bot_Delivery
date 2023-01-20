@@ -16,7 +16,7 @@ def set_state_review(dp: Dispatcher):
 async def review_register(msg: types.Message):
     #state machine2
     await FSM_Review.review.set()
-    await msg.answer('Напишите свой отзыв')
+    await msg.answer('Напишите свой отзыв', reply_markup = reply_key.kb_review )
 
 async def stop_review(msg: types.Message, state : FSMContext):
     current_state = await state.get_state()
