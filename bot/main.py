@@ -7,7 +7,6 @@ from .database import *
 from .handlers import *
 
 storage = MemoryStorage()
-print(storage)
 
 async def create_logic(dp: Dispatcher):
     start_database(dp)

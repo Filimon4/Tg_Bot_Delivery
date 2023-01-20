@@ -3,6 +3,9 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from ..button import *
 from ...database.utils import *
+from ..button import *
+from aiogram import Bot
+import os
 
 class FSM_Register(StatesGroup):
     email = State()
@@ -45,14 +48,20 @@ async def register_phone(msg: types.Message, state : FSMContext):
     answer = msg.text.replace('+',"").replace('-','')
     try:
         if answer.isnumeric():
+            bot = Bot(token=os.getenv("TOKEN"))
             await state.update_data(phone = answer)
             await msg.answer('Регистрация завершена', reply_markup = reply_key.kb_menu )
+            await bot.send_sticker(chat_id=msg.from_user.id,
+                           sticker="CAACAgIAAxkBAAEHWhVjyjpuS3yvmY7BsSoulvlfljgk2QAC2xYAAiHSsEiRX72f5in3PS0E")
             data = await state.get_data()
             set_user(data)
             print("finished")
             await state.finish()
         else:
             await msg.answer("Введите корректный номер телефона")
+            await bot.send_sticker(chat_id=msg.from_user.id,
+                           sticker="CAACAgIAAxkBAAEHWhdjyjp-Bac8iI5WuL2eTZ55R2r7EAACwRMAAl0nsUh_DkCx1ZLahS0E")
+            
     except Exception:
         print('Введите корректный номер телефона')
 

@@ -8,7 +8,7 @@ kb_menu = ReplyKeyboardMarkup(
             KeyboardButton(text= '🤖заказ') 
         ],
         [
-            KeyboardButton(text= '🤝напишите отзыв')
+            KeyboardButton(text= '🤝написать отзыв')
         ],
         [
             KeyboardButton(text= '👤Профиль')
@@ -42,4 +42,12 @@ kb_profile = ReplyKeyboardMarkup(
         [
             KeyboardButton(text= "Назад"),
         ]
+    ], resize_keyboard=True)
+
+
+kb_review = ReplyKeyboardMarkup(
+    keyboard = [
+        [
+            KeyboardButton(text = "Назад")
+        ],
     ], resize_keyboard=True)
