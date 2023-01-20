@@ -31,4 +31,4 @@ async def review_register_complete(msg: types.Message, state : FSMContext):
         else:
             msg.answer("Введите корректно")
     except Exception:
-        msh.answer("Введите корректно")
+        msg.answer("Введите корректно")
