@@ -27,11 +27,11 @@ async def order(msg: types.Message):
     await msg.answer('Выберите пункт меню:', reply_markup= reply_key.kb_order)
 
 async def find_orders(msg: types.Message):
-    await msg.answer('Находим заказы')
+    await msg.answer('Находим заказы...')
 
 async def profile(msg: types.Message):
     await msg.answer('Ваш профиль:', reply_markup= reply_key.kb_profile)
 
 async def find_points(msg: types.Message):
-    await msg.answer(f'Ваше количество баллов: ')
+    await msg.answer(f'Ваше количество баллов: 0')
     
