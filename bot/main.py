@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, executor, types
-import os
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+import os
 
 from .database import *
 from .handlers import *
