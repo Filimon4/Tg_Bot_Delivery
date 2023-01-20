@@ -4,7 +4,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from ..button import *
 from ...database.utils import *
-from aiogram import Bot
+from ...create_bot import *
 import os
 
 class FSM_Review(StatesGroup):
@@ -32,7 +32,6 @@ async def review_register_complete(msg: types.Message, state : FSMContext):
     answer = msg.text
     try:
         if str(answer):
-            bot = Bot(token=os.getenv("TOKEN"))
             async with state.proxy() as data:
                 data['text'] = msg.text
             await msg.answer('Ваш отзыв принят', reply_markup = reply_key.kb_menu )
