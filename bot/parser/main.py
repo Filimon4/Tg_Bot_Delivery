@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import os.path
 
 
 def get_data(url):
@@ -47,10 +48,16 @@ def get_data(url):
                 dictionary[text_name_set]['desc'] = text_desc
 
     # inject the data into the json file
-    # json_path = f"./data/parser/sessions/data_{}.json"
+    json_path = None
+    json_name = 'eat_data.json'
     json_object = json.dumps(dictionary, indent=4, ensure_ascii=False)
-    with open('eat_data.json', "w", encoding='utf-8') as outfile:
+
+    with open(json_name, "w", encoding='utf-8') as outfile:
         outfile.write(json_object)
+
+    json_path = os.path.abspath(json_name)
+    return json_path
+
 
 
 get_data('https://yaponomaniya.com/assorty')
