@@ -3,14 +3,15 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 import os
 
+
 from ..button import *
 
 
 async def start(msg: types.Message):
     bot = Bot(token=os.getenv("TOKEN"))
+    await msg.answer("Здравствуйте, вас приветсвует бот Акито для заказов еды из Япономании", reply_markup=reply_key.kb_menu)
     await bot.send_sticker(chat_id=msg.from_user.id,
                            sticker="CAACAgIAAxkBAAEHWhljyjqS5fuAdW0BWjaX4omEEW8oCAAChhIAApOFuEh_Z5OyWMQEVi0E")
-    await msg.answer("Здравствуйте, вас приветсвует бот Акито для заказов еды из Япономании", reply_markup=reply_key.kb_menu)
     await msg.delete()
 
 async def register(msg: types.Message):
