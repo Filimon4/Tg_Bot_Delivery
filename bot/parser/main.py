@@ -56,7 +56,7 @@ def get_data(url):
     # inject the data into the json file
     # json_path = f"./data/parser/sessions/data_{}.json"
     json_object = json.dumps(dictionary, indent=4, ensure_ascii=False)
-    with open('sample.json', "w", encoding='utf-8') as outfile:
+    with open('eat_data.json', "w", encoding='utf-8') as outfile:
         outfile.write(json_object)
 
 
