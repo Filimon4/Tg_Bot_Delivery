@@ -60,4 +60,4 @@ def get_data(url):
 
 
 
-get_data('https://yaponomaniya.com/assorty')
+# get_data()
