@@ -1,1 +1,2 @@
 from .state_machine import set_state
+from .state_machine import register_name, register_name_complete, register_password_complete
